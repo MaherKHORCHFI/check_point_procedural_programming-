@@ -1,0 +1,84 @@
+// This is the procedure which calculates the scalar product of v1 and v2
+PROCEDURE dot_product(V1, V2 :ARRAY_OF INTEGER[2])
+// The array length is defined to 2 because v1 and v2 are vectors of IR
+VAR
+    ps: INTEGER;
+BEGIN
+    FOR i FROM 0 TO 1  DO
+        ps = 0;
+        read(V1, V2) 
+        ps = ps + V1[i]*V2[i]
+    END_FOR
+END
+
+
+/* This is the Algorithm which determines for n pairs of given vectors, whether two vectors are orthogonal
+                                        using PROCEDURE dot_product*/
+
+ALGORITHM orthogonal_vectors
+VAR
+    V1, V2 :ARRAY_OF integer[2];
+    n,i,j: INTEGER;
+
+BEGIN
+  write("Please insert the vectors pairs number")
+  read(n)
+  
+  FOR i FROM 1 TO n STEP 1  DO
+    FOR j FROM 0 TO 1 STEP 
+        write("please insert coordinates of the first vector ")
+        read(v1)
+        write("please insert coordinates of the second vector ")
+        read(V2)
+        dot_product(v1,V2)
+    END_FOR
+    IF ( ps = 0 ) THEN
+      write ("The two  vectors are orthogonal")
+        END_IF
+  END_FOR
+END
+
+/*************************************************************************************************************************************
+**************************************************************************************************************************************/
+
+
+// This is the Function which calculates the scalar product of v1 and v2
+
+FUNCTION function_name(V1, V2 :ARRAY_OF INTEGER[2]) : INTEGER
+VAR
+      ps: INTEGER;
+BEGIN
+  FOR i FROM 0 TO 1  DO
+        ps = 0;
+        read(V1 , V2) 
+        ps = ps + v1[i]*V2[i]
+    END_FOR
+  RETURN ps ;
+END 
+
+
+/* This is the Algorithm which determines for n pairs of given vectors, whether two vectors are orthogonal
+                                        using FUNCTION dot_product */
+
+ALGORITHM orthogonal_vectors
+VAR
+    V1, V2 :ARRAY_OF integer[2];
+    ps,n,i,j: INTEGER;
+
+BEGIN
+  write("Please insert the vectors pairs number")
+  read(n)
+  
+  FOR i FROM 1 TO n STEP 1  DO
+    FOR j FROM 0 TO 1 STEP 
+        write("please insert coordinates of the first vector ")
+        read(v1)
+        write("please insert coordinates of the second vector ")
+        read(V2)
+        ps = dot_product(v1,V2)
+    END_FOR
+    IF ( ps = 0 ) THEN
+      write ("The two  vectors are orthogonal")
+        END_IF
+      END_FOR
+END
